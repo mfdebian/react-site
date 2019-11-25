@@ -1,26 +1,86 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* App imports */
+import React, {Component} from 'react';
+import uuid from 'uuid';
+import './assets/css/App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+/* Other components imports */
+import Posts from './components/Posts.js';
+import AddPost from './components/AddPost.js';
+
+class App extends Component {
+
+  state = {
+    posts: [
+      {
+        id: uuid.v4(),
+        title: "Music",
+        body: "Music post",
+        date_of_publication: Date.now()
+      },
+      {
+        id: uuid.v4(),
+        title: "Math",
+        body: "Math post",
+        date_of_publication: Date.now()
+      },
+      {
+        id: uuid.v4(),
+        title: "Movies",
+        body: "Movies post",
+        date_of_publication: Date.now()
+      },
+    ]
+  }
+
+  // delete's a post from the posts array
+  deletePost = (id) => {
+    let newPosts = this.state.posts.filter(post => {
+      return post.id !== id;
+    });
+
+    this.setState(
+      {
+        posts: newPosts
+      }
+    );
+
+  }
+
+  // add a post to the posts array
+  addPost = (post) => {
+    post.id = uuid.v4();
+    post.date_of_publication = Date.now();
+
+    let oldPosts = this.state.posts
+    let newPosts = oldPosts;
+    newPosts.push(post);
+
+    this.setState(
+      {
+        posts: newPosts
+      }
+    );
+
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <p>
+            Hi.
+          </p>
+        </header>
+        <br></br>
+        <AddPost addPost={this.addPost} />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          hello
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+        <br></br>
+        <Posts posts={this.state.posts} deletePost={this.deletePost}/>
+      </div>
+    );
+  }
 }
 
 export default App;

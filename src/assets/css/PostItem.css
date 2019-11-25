@@ -1,0 +1,15 @@
+.PostItem {
+  border-bottom: 1vh #ccc dotted;
+}
+
+.PostItem-header {
+  display: inline-block;
+  margin: 0;
+  padding-right: 4vh;
+}
+
+button {
+  float: left;
+  display: inline-block;
+  margin-top: 1vh;
+}
