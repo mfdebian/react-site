@@ -35,6 +35,7 @@ class AddPost extends Component {
           value={this.state.title}
           onChange={this.onChange}
         />
+        <br />
         <input
           type="text"
           name="body"
@@ -42,6 +43,7 @@ class AddPost extends Component {
           value={this.state.body}
           onChange={this.onChange}
         />
+        <br />
         <input
           type="submit"
           value="Submit"

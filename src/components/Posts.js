@@ -12,7 +12,8 @@ class Posts extends Component {
 }
 
 Posts.propTypes = {
-  posts: PropTypes.array.isRequired
+  posts: PropTypes.array.isRequired,
+  deletePost: PropTypes.func.isRequired
 }
 
 export default Posts;

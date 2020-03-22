@@ -22,7 +22,8 @@ class PostItem extends Component {
 }
 
 PostItem.propTypes = {
-  post: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired,
+  deletePost: PropTypes.func.isRequired
 }
 
 export default PostItem;
