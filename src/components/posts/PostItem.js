@@ -2,7 +2,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Moment from 'react-moment';
-import '../assets/css/PostItem.css';
+import '../../assets/css/PostItem.css';
 
 class PostItem extends Component {
   render() {
